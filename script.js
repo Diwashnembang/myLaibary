@@ -17,26 +17,67 @@ function book(title,aurthor,totalPage,status){
 function makecards(){
   console.log(myLaibary.length);
   if(myLaibary.length===0) return;
-  if(myLaibary.length!==0){
-    cardDom.classList.remove("hidden");
-  }
+  // if(myLaibary.length!==0){
+  //   cardDom.classList.remove("hidden");
+  // }
 
 
- for (let i = 0; i < myLaibary.length; i++) {
+myLaibary.forEach(book => {
   const copiedDom=cardDom.cloneNode(true);
   copiedDom.classList.remove("hidden");
-   copiedDom.setAttribute("data",`${i}`)
    main.append(copiedDom);
-   
- }
+    copiedDomChildrens=Array.from(copiedDom.children);
+    copiedDomChildrens.forEach(child=>{
+         if(child.getAttribute("class")==="top"){
+
+       child.firstChild.textContent=book.title;
+      //  console.log()
+     }
+     if(child.getAttribute("class")==="cardAurthor"){
+
+       child.textContent=book.aurthor;
+     
+    }
+    if(child.getAttribute("class")==="cardTotalPage"){
+
+      child.textContent=book.totalPage;
+     
+    }
+
+    })
+
+  //  while(copiedDom.children){
+  //    if(copiedDom.children.getAttribute("class")==="cardTitle"){
+
+  //      copiedDom.children.textContent=book.title;
+  //    }
+  //    if(copiedDom.children.getAttribute("class")==="cardAurthor"){
+
+  //      copiedDom.children.textContent=book.aurthor;
+     
+  //   }
+  //   if(copiedDom.children.getAttribute("class")==="cardTotalpage"){
+
+  //     copiedDom.children.textContent=book.totalPage;
+     
+  //   }
+
+    console.table(copiedDomChildrens)
+     
+   }
+
+);
+
   
 }
 
 function addBook(){
-  if(titleDom.value===undefined||aurthorDom.value===undefined||totalPage.value===undefined){return console.log("returned")}
+  if(titleDom.value===''||aurthorDom.value===''||totalPage.value===''){return console.log("returned")}
     let newBook=new book(titleDom.value,aurthorDom.value,totalPage.value,completedDom.value);
     myLaibary.push(newBook);
+   
   console.table(myLaibary);
+
   
 }
 
@@ -47,16 +88,29 @@ function clearScreen(){
   }
 }
 
-myLaibary=[];
 
-// const titleDom=document.querySelector(".title");
+function clearAddBookFrom(){
+  aurthorDom.value='';
+  titleDom.value='';
+  totalPageDom.value='';
+  completedDom.value='';
+}
+
+
+
+
+let myLaibary=[];
+
+
+
+
+
+
 
 
 //general doms 
 const mainDom=document.querySelector("#main");
 const cardDom=document.querySelector(".card");
-// const copiedDom=cardDom.cloneNode(true);
-// copiedDom.classList.remove("hidden");
 const addBookButtonDom=document.querySelector("#info");
 const addFormDom=document.querySelector("#addForm")
 
@@ -68,8 +122,13 @@ const totalPageDom=document.querySelector("#totalPage");
 const completedDom=document.querySelector("#completed");
 const submmitButtonDom=document.querySelector("#button");
 
+// card doms
+const cardTitleDom=document.querySelector(".cardTitle");
+const cardAurthorDom=document.querySelector(".cardAurthor");
+const cardTotalPageDom=document.querySelector(".cardTotalPage");
 
-console.log(completedDom)
+console.log(cardTitleDom);
+
 
 addBookButtonDom.addEventListener("click",()=>{
   addFormDom.classList.toggle("hidden")
@@ -80,14 +139,7 @@ submmitButtonDom.addEventListener("click",()=>{
   addBook();
   clearScreen()
   makecards();
+  clearAddBookFrom();
 })
 
-// makecards()
-
-// const myBook=addBook("my","me","100","read");
-// const myBook1=addBook("my","me","100","read");
-// myLaibary.push(myBook);
-// myLaibary.push(myBook1);
-// makecards()
-// console.log(myLaibary)
 
