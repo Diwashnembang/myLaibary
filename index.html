@@ -22,21 +22,28 @@
 
     <main>
         <section id="addForm" class="hidden">
-            <div>
-                <span class="text">author</span><input class="block" type="text" name="aurthor" id="aurthor">
-            </div>
-            <div>
-                <span class="text">title</span><input class="block" type="text" name="title" id="title">
-            </div>
-            <div>
-                <span class="text">total page</span><input class="block" type="number" name="totalPage" id="totalPage">
-            </div>
-            <div>
-                <span class="text">title</span><input class="block" type="text" name="completed" id="completed">
-            </div>
-            <div id="button">
-                <input type="button" value="submmit">
-            </div>
+            <form action="#">
+
+                <div>
+                    <label for="title" class="text">title</label>
+                    <input class="block" type="text" name="aurthor" id="title" required>
+                </div>
+                <div>
+                    <label for="aurthor" class="text">aurthor</label>
+                    <input class="block" type="text" name="title" id="aurthor" required>
+                </div>
+                <div>
+                    <label for="totalPage" class="text">total page</label>
+                    <input class="block" type="number" name="totalPage" id="totalPage" required>
+                </div>
+                <div>
+                    <label for="read" class="text">Completed page</label>
+                    <input class="block" type="number" name="completed" id="completed" required>
+                </div>
+                <div id="button">
+                    <button type="submit" value="submmit">Submit</button>
+                </div>
+            </form>
 
         </section>
 
@@ -45,35 +52,22 @@
             <div class="card hidden">
                 <div class="top">
                     <div class="cardTitle">
-                        
                     </div>
                     <div class="cardDelet">
                         <img src="assets/close_black_24dp 1.png" alt="close img" srcset="">
                     </div>
                 </div>
-                <div class="cardAurthor"></div>
-                <div class="cardTotalPage"></div>
-                <div class="cardEditSection">
-                    <img src="assets/outline_add_black_24dp.png" alt="add image" srcset="">
-                    <input type="number" name="pageRead" class="pageRead">
-                    <img src="assets/outline_remove_black_24dp.png" alt="remove image" srcset="">
-                </div>
-                <svg width="71" height="74" viewBox="0 0 71 74" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g class="slider 1" clip-path="url(#clip0)">
-                        <path class="slider"
-                            d="M18.5566 25.868C12.6656 25.868 7.88962 30.8451 7.88962 36.9858C7.88962 43.1257 12.6656 48.1035 18.5566 48.1035C24.4483 48.1035 29.2236 43.1257 29.2236 36.9858C29.2193 30.8474 24.4462 25.8725 18.5566 25.868Z"
-                            fill="black" />
-                        <path class="border"
-                            d="M52.4342 17.6443H18.5566C8.30846 17.6443 0 26.3038 0 36.9858C0 47.6677 8.30846 56.3265 18.5566 56.3265H52.4521C62.701 56.3212 71.0052 47.658 71.0001 36.976C70.9951 26.2941 62.6823 17.6391 52.4342 17.6443V17.6443ZM18.5566 50.7871C11.2439 50.7871 5.31483 44.6082 5.31483 36.9858C5.31483 29.3633 11.2439 23.1845 18.5566 23.1845C25.8701 23.1845 31.7984 29.3633 31.7984 36.9858C31.7905 44.6045 25.8665 50.7781 18.5566 50.7871Z"
-                            fill="black" />
-                    </g>
-                    <defs>
-                        <clipPath class="clip0">
-                            <rect width="71" height="74" fill="white" />
-                        </clipPath>
-                    </defs>
-                </svg>
 
+                    <div class="cardAurthor"></div>
+                    <div class="cardTotalPage"></div>
+                    <div class="cardTotalRead"></div>
+                    <div class="cardEditSection">
+                        <span>Read</span>
+                        <img src="assets/outline_add_black_24dp.png" alt="add image" srcset="" class="add">
+                        <input type="number" name="pageRead" class="pageRead" min="0">
+                    <img src="assets/outline_remove_black_24dp.png" alt="remove image" srcset="" class="minus">
+                    
+                    
             </div>
         </section>
     </main>
