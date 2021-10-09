@@ -1,190 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap");
 
 /* variable */
 :root {
-    --white: #c1c1c1;
-    --border:rgba(0, 0, 0, .5);
-    --buttonColor:rgba(255,165,0,0.85);
-    --font:'Yanone Kaffeesatz', sans-serif;
-    --primary:#ACA7CB;
-    --secondary:#474554;
-    --complementry:#F9DCD9;
+  --white: #c1c1c1;
+  --border: rgba(0, 0, 0, 0.5);
+  --buttonColor: rgba(255, 165, 0, 0.85);
+  --font: "Yanone Kaffeesatz", sans-serif;
+  --primary: #aca7cb;
+  --secondary: #474554;
+  --complementry: #f9dcd9;
 }
 
 /* reset */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-
-
-body{
-    background: var(--secondary);
+body {
+  background: var(--secondary);
 }
-#addForm{
-    background-color: blue;
-    position: absolute;
-    left:18px;
-    right: auto;
-    top: 25vh;
-    
+#addForm {
+  background-color: blue;
+  position: absolute;
+  left: 18px;
+  right: auto;
+  top: 25vh;
 }
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-
-
-.card{
-    background-color: var(--primary);
-    max-width:301px;
-    min-width: auto;
-    min-height: 381px;
-    border-radius: 15px;
-    text-align: center;
-    grid-column: span 2;
-    font-size: 40px;
-    font-family:var(--font);
+.card {
+  background-color: var(--primary);
+  max-width: 301px;
+  min-width: auto;
+  min-height: 381px;
+  border-radius: 15px;
+  text-align: center;
+  grid-column: span 2;
+  font-size: 40px;
+  font-family: var(--font);
 }
 
-
-.card .top{
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column-reverse;
-    margin-bottom: 15px;
-    
-    
+.card .top {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  margin-bottom: 15px;
 }
 
-.cardDelet{
-    width:100%;
-    text-align: right;
-
+.cardDelet {
+  width: 100%;
+  text-align: right;
 }
 
-
-.cardTotalPage{
-    margin-top: 10px;
+.cardTotalPage {
+  margin-top: 10px;
 }
 
-
-.cardTitle{
-    text-align: center;
-    width: 100%; 
-    font-weight: bold; 
-    border-top: black solid 1px;
-    border-bottom: solid black 1px;
-    padding-top: 9px;
+.cardTitle {
+  text-align: center;
+  width: 100%;
+  font-weight: bold;
+  border-top: black solid 1px;
+  border-bottom: solid black 1px;
+  padding-top: 9px;
 }
 
-
-
-#main{
-    display: grid;
-    grid-template-columns: repeat(8,1fr);
-    column-gap: 25px;
-    margin: 0px 80px 0px 80px;
-    justify-items: center;
-    row-gap: 71px;
+#main {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 25px;
+  margin: 0px 80px 0px 80px;
+  justify-items: center;
+  row-gap: 71px;
 }
 
-main{
-    margin-top: 154px;
+main {
+  margin-top: 154px;
 }
 
-
-.slider{
-    background-color: chartreuse;
-
+.slider {
+  background-color: chartreuse;
 }
 
-.slider:hover{
-    background-color: chartreuse;
-    animation-name: read;
-    animation-fill-mode: forwards;
-    animation-duration: 2s;
-    display: none;
+.slider:hover {
+  background-color: chartreuse;
+  animation-name: read;
+  animation-fill-mode: forwards;
+  animation-duration: 2s;
+  display: none;
 }
 
-
-
-header{
-    display: flex;
-    font-family: var(--font);
-    font-size: 30px;
-    font-weight: 700px;
-    align-items: center;
-    height:72px;
-    background: var(--primary);
-    position: fixed;
-    top:0;
-    width: 100%;
-    border-bottom: solid 2.5px #c1c1c1;
+header {
+  display: flex;
+  font-family: var(--font);
+  font-size: 30px;
+  font-weight: 700px;
+  align-items: center;
+  height: 72px;
+  background: var(--primary);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: solid 2.5px #c1c1c1;
 }
 
-#header{
-    text-align: center;
-    width :100%;
-    height: 40px;
-    line-height: 47px;
-
+#header {
+  text-align: center;
+  width: 100%;
+  height: 40px;
+  line-height: 47px;
 }
 
-#info{
-
-    text-align: center;
-    width: 138px;
-   
+#info {
+  text-align: center;
+  width: 138px;
 }
 
 input {
-    border: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: #f2f2f2;
-    padding: var(--field-padding);
-    border-radius: 3px;
-    font-size: 20px;
-    padding-left: 5px;
-    font-family: var(--font);
-    font-weight: bold;
-  }
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: var(--field-padding);
+  border-radius: 3px;
+  font-size: 20px;
+  padding-left: 5px;
+  font-family: var(--font);
+  font-weight: bold;
+}
 
 /* for chrome */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none; 
-      margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 /* for mozila */
-input[type=number] { 
-    -moz-appearance: textfield;
-    appearance: textfield;
-    margin: 0; 
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin: 0;
 }
 
-
-.cardEditSection .pageRead{
-    /* background-color: yellowgreen; */
-    height: 25px;
-    width:20%;
-    background: var(--primary);
-
+.cardEditSection .pageRead {
+  /* background-color: yellowgreen; */
+  height: 25px;
+  width: 20%;
+  background: var(--primary);
 }
 
-.cardEditSection{
-    margin-top: 15px;
-    border: whitesmoke 2px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--complementry);
+.cardEditSection {
+  margin-top: 15px;
+  border: whitesmoke 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--complementry);
 }
-
-

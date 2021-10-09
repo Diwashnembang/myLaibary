@@ -24,8 +24,15 @@ function changeRead(book, add) {
   clearScreen();
   makecards();
 }
-function makecards() {
-  for (let book = 0; book < myLaibary.length; book++) {
+
+function makecards(isFirstLoad,LocalStoragelaibary) {
+  let noOfBook;
+  // if(isFirstLoad && LocalStoragelaibary){
+  //   noOfBook= LocalStoragelaibary.length
+  // }else{
+    noOfBook=myLaibary.length;
+  // }
+  for (let book = 0; book < noOfBook; book++) {
     const copiedDom = cardDom.cloneNode(true);
     copiedDom.classList.remove("hidden");
     mainDom.append(copiedDom);
@@ -48,7 +55,7 @@ function removeCard(card) {
   myLaibary.splice(+card.parentNode.parentNode.getAttribute("data-cardNo"), 1);
   clearScreen();
   makecards();
-  console.log(myLaibary);
+  setLocalStorage();
 }
 
 function cardContentLogic(book, copiedDom) {
@@ -97,7 +104,9 @@ function cardContentLogic(book, copiedDom) {
     }
   });
 }
-function isValid(e) {
+
+
+function addBook(e) {
   if (totalPageDom.value === "" || completedDom.value === "") return;
 
   if (totalPageDom.value < completedDom.value) {
@@ -111,9 +120,6 @@ function isValid(e) {
 
     return alert(errorMessage.negativeCompletedPage);
   }
-}
-function addBook(e) {
-  isValid(e);
 
   let newBook = new book(
     titleDom.value,
@@ -126,6 +132,8 @@ function addBook(e) {
   clearAddBookFrom();
   clearScreen();
   makecards();
+  setLocalStorage();
+
 }
 
 function clearScreen() {
@@ -139,6 +147,21 @@ function clearAddBookFrom() {
   titleDom.value = "";
   totalPageDom.value = "";
   completedDom.value = "";
+}
+
+
+function setLocalStorage(){
+  console.table(myLaibary)
+  let books=JSON.stringify(myLaibary)
+  localStorage.setItem("laibary",`${books}`);
+  console.log(localStorage)
+
+}
+
+function getLocalStorage() {
+  let laibary=JSON.parse(localStorage.getItem('laibary'))
+  return laibary
+
 }
 
 let myLaibary = [];
@@ -174,3 +197,10 @@ addBookButtonDom.addEventListener("click", () => {
 submmitButtonDom.addEventListener("click", (e) => {
   addBook(e);
 });
+
+let storedBooks=getLocalStorage();
+storedBooks.forEach(storedBook => {
+  myLaibary.push(storedBook);
+});
+console.log(myLaibary)
+makecards();
