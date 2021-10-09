@@ -41,7 +41,7 @@ function makecards(isFirstLoad,LocalStoragelaibary) {
     cardNumber++;
   }
 
-  const cards = Array.from(document.querySelectorAll(".cardDelet"));
+  const cards = Array.from(document.querySelectorAll(".deletImg"));
   cards.forEach((card) => {
     card.addEventListener("click", () => {
       removeCard(card);
