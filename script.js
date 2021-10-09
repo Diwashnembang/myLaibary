@@ -26,12 +26,13 @@ function changeRead(book, add) {
 }
 
 function makecards(isFirstLoad,LocalStoragelaibary) {
-  let noOfBook;
-  // if(isFirstLoad && LocalStoragelaibary){
-  //   noOfBook= LocalStoragelaibary.length
-  // }else{
-    noOfBook=myLaibary.length;
-  // }
+   let  noOfBook=myLaibary.length;
+   if(noOfBook===0){
+     noBooksMessageDom.classList.remove("hidden")
+   }
+   if(noOfBook!==0){
+    noBooksMessageDom.classList.add("hidden")
+  }
   for (let book = 0; book < noOfBook; book++) {
     const copiedDom = cardDom.cloneNode(true);
     copiedDom.classList.remove("hidden");
@@ -176,6 +177,7 @@ const mainDom = document.querySelector("#main");
 const cardDom = document.querySelector(".card");
 const addBookButtonDom = document.querySelector("#info");
 const addFormDom = document.querySelector("#addForm");
+const noBooksMessageDom= document.querySelector(".noBooks");
 
 // doms for adding books
 const aurthorDom = document.querySelector("#aurthor");
@@ -201,6 +203,7 @@ submmitButtonDom.addEventListener("click", (e) => {
 let storedBooks=getLocalStorage();
 storedBooks.forEach(storedBook => {
   myLaibary.push(storedBook);
+  console.log(storedBook)
 });
 console.log(myLaibary)
 makecards();
