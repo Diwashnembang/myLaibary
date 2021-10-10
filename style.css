@@ -22,12 +22,112 @@ body {
   background: var(--secondary);
 }
 #addForm {
-  background-color: blue;
+  background-color:  var(--primary);
+  width:50%;
+  max-height: 60%;
+  min-height: 80%;
+ 
+ 
   position: absolute;
-  left: 18px;
-  right: auto;
-  top: 25vh;
+  left: 25%;
+  top: 18vh;
+  right: 20%;
+  border-radius: 1rem;
+  font-family: var(--font);
+  font-size: 35px;
+  -webkit-box-shadow: -2px -1px 15px 7px rgba(0,0,0,0.5);
+  -moz-box-shadow: -3px -2px 30px 14px rgba(0,0,0,0.425);
+  box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+  /* text-align: center; */
+  /* padding-top: 40px; */
+
 }
+
+#close{
+  padding-right: 30px;
+  text-align: end;
+  width:100%;
+
+
+}
+
+form{
+ margin-left: 30px;
+ margin-right: 30px;
+
+}
+legend{
+  font-size: 25px;
+  margin-left: 15px;
+
+}
+
+fieldset{
+  border: black solid 2px;
+  border-radius: 5px;
+  height: 400px;
+}
+
+
+input {
+  border: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #f2f2f2;
+  padding: var(--field-padding);
+  border-radius: 3px;
+  font-size: 20px;
+  padding-left: 5px;
+  font-family: var(--font);
+  font-weight: bold;
+  
+  
+}
+.form{
+
+  margin-top: 25px;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.block{
+  width:300px;
+  max-height: 55px;
+  min-height:30px;
+  padding-left: 15px;
+  font-size: 30px;
+  
+  
+}
+
+#button{
+  width: 100px;
+  margin-top: 30px;
+  background: var(--complementry);
+  
+}
+#button button{
+
+  width:100px;
+  /* border: solid springgreen 3px; */
+  font-size: 25px;
+  text-align: center;
+  padding-left: 0px;
+  background: var(--complementry) ;
+
+ 
+  
+
+}
+
+
 
 .hidden {
   display: none;
@@ -37,12 +137,16 @@ body {
   background-color: var(--primary);
   max-width: 301px;
   min-width: auto;
-  min-height: 381px;
+  height: 381px;
   border-radius: 15px;
   text-align: center;
   grid-column: span 2;
   font-size: 40px;
   font-family: var(--font);
+  -webkit-box-shadow: -2px -1px 15px 7px rgba(0,0,0,0.5);
+  -moz-box-shadow: -3px -2px 30px 14px rgba(0,0,0,0.425);
+  box-shadow: -4px -3px 45px 21px rgba(0,0,0,0.35);
+ 
 }
 
 .card .top {
@@ -132,20 +236,6 @@ header {
   width: 138px;
 }
 
-input {
-  border: none;
-  -webkit-appearance: none;
-  -ms-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: #f2f2f2;
-  padding: var(--field-padding);
-  border-radius: 3px;
-  font-size: 20px;
-  padding-left: 5px;
-  font-family: var(--font);
-  font-weight: bold;
-}
 
 /* for chrome */
 input[type="number"]::-webkit-inner-spin-button,
@@ -174,4 +264,31 @@ input[type="number"] {
   align-items: center;
   justify-content: center;
   background: var(--complementry);
+}
+
+
+@media (max-width:700px) {
+  .card{
+
+    height: 350px;
+    grid-column: span 8;
+    font-size: 35px;
+  }
+
+  header{
+    font-size: 20px;
+  }
+
+  #addForm{
+    left:0px;
+    width:100%
+  }
+
+  
+}
+
+@media (min-width:701px) and (max-width:1000px){
+  .card{
+    grid-column: span 4;
+  }
 }

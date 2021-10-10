@@ -25,7 +25,7 @@ function changeRead(book, add) {
   makecards();
 }
 
-function makecards(isFirstLoad,LocalStoragelaibary) {
+function makecards() {
    let  noOfBook=myLaibary.length;
    if(noOfBook===0){
      noBooksMessageDom.classList.remove("hidden")
@@ -53,7 +53,7 @@ function makecards(isFirstLoad,LocalStoragelaibary) {
 }
 
 function removeCard(card) {
-  myLaibary.splice(+card.parentNode.parentNode.getAttribute("data-cardNo"), 1);
+  myLaibary.splice(+card.parentNode.parentNode.parentNode.getAttribute("data-cardNo"), 1);
   clearScreen();
   makecards();
   setLocalStorage();
@@ -89,9 +89,14 @@ function cardContentLogic(book, copiedDom) {
       numberInput.addEventListener("keydown", (e) => {
         if (e.key !== "Enter") return;
         if (numberInput.value <= 0) numberInput.value = 0;
-        if (numberInput.value >= book.totalPage)
+        if (numberInput.value >= book.totalPage){
+
           numberInput.value = book.totalPage;
+        }
         book.status = numberInput.value;
+        if(+book.status> +book.totalPage) {
+          book.status=book.totalPage;
+        }
         clearScreen();
         makecards();
       });
@@ -108,15 +113,16 @@ function cardContentLogic(book, copiedDom) {
 
 
 function addBook(e) {
+
   if (totalPageDom.value === "" || completedDom.value === "") return;
 
-  if (totalPageDom.value < completedDom.value) {
+  if (+totalPageDom.value < +completedDom.value) {
     e.preventDefault();
 
     return alert(errorMessage.moreCompletedPage);
   }
 
-  if (completedDom.value < 0) {
+  if (+completedDom.value < 0) {
     e.preventDefault();
 
     return alert(errorMessage.negativeCompletedPage);
@@ -152,10 +158,8 @@ function clearAddBookFrom() {
 
 
 function setLocalStorage(){
-  console.table(myLaibary)
   let books=JSON.stringify(myLaibary)
   localStorage.setItem("laibary",`${books}`);
-  console.log(localStorage)
 
 }
 
@@ -178,6 +182,7 @@ const cardDom = document.querySelector(".card");
 const addBookButtonDom = document.querySelector("#info");
 const addFormDom = document.querySelector("#addForm");
 const noBooksMessageDom= document.querySelector(".noBooks");
+const closeDom=document.querySelector(".closeImg");
 
 // doms for adding books
 const aurthorDom = document.querySelector("#aurthor");
@@ -192,13 +197,19 @@ const minusDom = document.querySelector(".minus");
 
 // read slider dom
 
-addBookButtonDom.addEventListener("click", () => {
-  addFormDom.classList.toggle("hidden");
-});
+  addBookButtonDom.addEventListener("click", () => {
+    addFormDom.classList.toggle("hidden");
+    
+  });
 
 submmitButtonDom.addEventListener("click", (e) => {
   addBook(e);
 });
+
+closeDom.addEventListener("click",()=>{
+  addFormDom.classList.toggle("hidden");
+}
+);
 
 let storedBooks=getLocalStorage();
 storedBooks.forEach(storedBook => {

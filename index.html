@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <div id="info">
+        <div id="info" >
             <span id="addBookText">ADD BOOK</span>
         </div>
 
@@ -23,27 +23,34 @@
     <main>
         <div class="noBooks "><span>NO BOOKS SAVED YET!!!</span></div>
         <section id="addForm" class="hidden">
-            <form action="#">
+            <div id="close">
 
-                <div>
-                    <label for="title" class="text">title</label>
-                    <input class="block" type="text" name="aurthor" id="title" required>
-                </div>
-                <div>
-                    <label for="aurthor" class="text">aurthor</label>
-                    <input class="block" type="text" name="title" id="aurthor" required>
-                </div>
-                <div>
-                    <label for="totalPage" class="text">total page</label>
-                    <input class="block" type="number" name="totalPage" id="totalPage" required>
-                </div>
-                <div>
-                    <label for="read" class="text">Completed page</label>
-                    <input class="block" type="number" name="completed" id="completed" required>
-                </div>
-                <div id="button">
-                    <button type="submit" value="submmit">Submit</button>
-                </div>
+                <img src="assets/close_black_24dp 1.png" alt="close img" srcset="" class="closeImg">
+            </div>
+            <form action="#">
+                <fieldset>
+
+                    <legend>Add Book</legend>
+                    <div class="form">
+                        <label for="title" >Title</label>
+                        <input class="block" type="text" name="aurthor" id="title" required>
+                    </div>
+                    <div class="form">
+                        <label for="aurthor" >Aurthor</label>
+                        <input class="block" type="text" name="title" id="aurthor" required>
+                    </div class="form">
+                    <div class="form">
+                        <label for="totalPage">Total Page</label>
+                        <input class="block" type="number" name="totalPage" id="totalPage" required>
+                    </div>
+                    <div class="form">
+                        <label for="read" >Completed Page</label>
+                        <input class="block" type="number" name="completed" id="completed" required>
+                    </div>
+                </fieldset>
+                    <div id="button">
+                        <button type="submit" value="submmit" class="block">Submit</button>
+                    </div>
             </form>
 
         </section>
