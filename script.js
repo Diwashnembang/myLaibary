@@ -8,7 +8,7 @@
     this.aurthor = aurthor;
     this.totalPage = totalPage;
     this.status = status;
-    this.read = read;
+   
 
     function info(){
       return `${title} by ${aurthor},${totalPage} pages,${status}`;
