@@ -2,16 +2,32 @@
  -diwash nembang 
  the odin project*/
 
-function book(title, aurthor, totalPage, status, read) {
-  this.title = title;
-  this.aurthor = aurthor;
-  this.totalPage = totalPage;
-  this.status = status;
-  this.read = read;
-  this.info = () => {
-    return `${title} by ${aurthor},${totalPage} pages,${status}`;
-  };
-}
+ class book{
+   constructor(title, aurthor, totalPage, status){
+    this.title = title;
+    this.aurthor = aurthor;
+    this.totalPage = totalPage;
+    this.status = status;
+    this.read = read;
+
+    function info(){
+      return `${title} by ${aurthor},${totalPage} pages,${status}`;
+
+    }
+
+   }
+ }
+
+// function book(title, aurthor, totalPage, status, read) {
+//   this.title = title;
+//   this.aurthor = aurthor;
+//   this.totalPage = totalPage;
+//   this.status = status;
+//   this.read = read;
+//   this.info = () => {
+//     return `${title} by ${aurthor},${totalPage} pages,${status}`;
+//   };
+// }
 
 function changeRead(book, add) {
   if (add) {

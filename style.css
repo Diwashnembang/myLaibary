@@ -30,7 +30,7 @@ body {
  
   position: absolute;
   left: 25%;
-  top: 18vh;
+  top: 18vh;  
   right: 20%;
   border-radius: 1rem;
   font-family: var(--font);
@@ -281,7 +281,7 @@ input[type="number"] {
 
   #addForm{
     left:0px;
-    width:100%
+    width:100%;
   }
 
   
